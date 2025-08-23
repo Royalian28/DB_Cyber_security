@@ -1,0 +1,26 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+
+
+# Room: Hydra (Brute‑force Tooling Basics)
+
+# Goal: 
+Learn Hydra syntax and safe usage for online password attempts in a lab.  
+Key Skills: Wordlists, service targets (SSH/FTP/HTTP‑form), rate control, legal/ethical limits.
+
+# Method (High‑Level)
+1. Target Selection: Identify service and username(s).  
+2. Command Structure: Choose module (e.g., ssh/ftp/http‑form), specify `-l/-L` (user) and `-p/-P` (pass), set request format for forms.  
+3. Controls: Limit speed/threads; avoid lockouts; stop on success; log output.  
+4. Validation: Confirm credentials and capture the lab flag.
+
+# Defensive Takeaways
+- MFA, account lockout policies, monitoring failed‑login patterns, WAF/Fail2ban, strong passwords.

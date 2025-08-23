@@ -1,0 +1,25 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+
+# Room: RP — Nessus Redux
+
+# Goal: 
+Install and operate Nessus to perform authenticated/unauthenticated scans and interpret reports.  
+Key Skills: Policy templates, scan scoping, credentialed scans, false‑positive review.
+
+# Method (High‑Level)
+1. Setup: Install Nessus, register, and update plugins.  
+2. Scoping: Create a scan policy; set targets, ports, performance, and safe checks.  
+3. Execution: Run scan, monitor runtime; export results (HTML, CSV).  
+4. Analysis: Prioritize by CVSS, proof of exploitability, business context; retest after remediation.
+
+# Defensive Takeaways
+- Scheduled scanning, differential reports, ticketing integration, and validating critical findings.

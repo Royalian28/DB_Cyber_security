@@ -1,0 +1,29 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+Room: Pokémon
+
+Target/OS: Linux (CTF-style)
+
+Objective: Capture multiple Pokémon-themed flags.
+
+Recon:
+Open ports: 22 (SSH), 80 (HTTP).
+Web content enumeration reveals hidden routes with flag clues.
+
+Exploit Path (high-level):
+Solve riddles and crack encoded Pokémon names.
+Abuse SSH with discovered credentials.
+
+Post-Exploitation: Captured themed flags across web and system.
+
+Cleanup: Remove uploaded payloads.
+
+Defensive Notes: Don’t expose puzzle endpoints on prod; enforce strict access.

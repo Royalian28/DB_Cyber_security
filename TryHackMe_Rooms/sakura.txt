@@ -1,0 +1,29 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+oom: Sakura
+
+Target/OS: Linux
+
+Objective: Gain foothold and escalate privileges.
+
+Recon:
+Nmap: 22 (SSH), 80 (HTTP).
+Web enumeration finds vulnerable CMS.
+
+Exploit Path (high-level):
+Exploit CMS upload vulnerability for reverse shell.
+Privilege escalation via cron job with writable script.
+
+Post-Exploitation: Captured user.txt and root.txt.
+
+Cleanup: Remove web shell, clear cron changes.
+
+Defensive Notes: Update CMS, restrict cron scripts, enforce principle of least privilege.

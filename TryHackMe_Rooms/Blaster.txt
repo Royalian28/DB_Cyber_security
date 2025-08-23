@@ -1,0 +1,28 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+Room: Blaster
+
+Target/OS: Windows
+
+Goal: Gain initial access, escalate privileges, capture flags.
+
+Recon:
+Nmap shows open ports: 80 (IIS), 135 (RPC), 139/445 (SMB).
+Web server hosts a site with default pages, discovered hidden directory with credentials leak.
+
+Exploit Path (high-level):
+Use weak service credentials to log in via RDP.
+Exploit privilege escalation via misconfigured scheduled task.
+
+Post-Exploitation: Retrieved user.txt and root.txt.
+
+Cleanup: Clear event logs, remove created accounts.
+
+Defensive Notes: Patch privilege escalation paths, restrict SMB shares, enforce strong passwords.

@@ -1,0 +1,25 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+Room: Searchlight OSINT
+
+Target/OS: OSINT challenge
+
+Objective: Gather intel using open-source intelligence.
+
+Recon: Analyze social media, domains, images.
+
+Exploit Path (high-level): Extract metadata, pivot between usernames, find hidden clues.
+
+Post-Exploitation: Collected required OSINT flags.
+
+Cleanup: None needed.
+
+Defensive Notes: Awareness training for reducing OSINT footprint.

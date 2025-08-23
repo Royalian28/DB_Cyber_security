@@ -1,0 +1,27 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+Room: Technocrat OSINT CTF
+
+Target/OS: OSINT challenge
+
+Objective: Capture OSINT flags from corporate footprint.
+
+Recon:
+Map company structure via LinkedIn.
+Use WHOIS, DNS records, and GitHub searches.
+
+Exploit Path (high-level): Correlate data leaks with staff info.
+
+Post-Exploitation: Completed flag hunt through investigation.
+
+Cleanup: None.
+
+Defensive Notes: Apply OSINT reduction: private repos, limit employee oversharing.
