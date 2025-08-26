@@ -1,0 +1,17 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-26  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+Room Type: Pre-Security (Networking Foundations)
+
+Objective: Deep dive into DNS and its importance in networking & security.
+
+Tasks Completed:
+
+DNS Basics → Learned how DNS translates domain names to IP addresses.
+DNS Records → A (Address), CNAME, MX, TXT, PTR — their uses in internet communication.
+How DNS Works → Recursive and iterative queries explained.
+Security Context → Learned how attackers abuse DNS (DNS hijacking, tunneling, exfiltration).
+Key Learning: DNS is both a backbone of the internet and a frequent target for attackers; defenders must monitor DNS traffic for anomalies.

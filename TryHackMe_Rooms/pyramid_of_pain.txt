@@ -1,0 +1,19 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-26  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+# TryHackMe Room: Pyramid of Pain
+
+* Room Type: Defensive Security Concept
+* Objective: Understand the Pyramid of Pain model and how hard it is for attackers to change different indicators of compromise (IoCs).
+* Tasks Completed
+
+  1. Introduction → Learned what the Pyramid of Pain is.
+  2. Hash Values (Trivial) → Simple to change, defenders don’t rely only on them.
+  3. IP Addresses (Easy) → Attackers can switch quickly using proxies/VPNs.
+  4. Domain Names (Simple) → Easy for attackers to rotate domains with automation.
+  5. Network/Host Artifacts → Harder for adversaries to change because tied to tools/tactics.
+  6. Tools / TTPs (Hard/Costly) → The higher we go in the pyramid, the more difficult it is for adversaries to adapt.
+* Key Learning: Effective defense means focusing on higher-level indicators (TTPs) rather than just hashes or IPs.

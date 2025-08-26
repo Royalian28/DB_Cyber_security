@@ -1,0 +1,16 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-26  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+# TryHackMe Room: Junior Security Analyst Intro
+
+* Room Type:  SOC / Blue Team Career Simulation
+* Objective: Experience a day in the life of a Security Analyst in a SOC.
+* Tasks Completed:
+
+  1. Career Path → Learned skills, responsibilities, and expectations of a Junior Security Analyst.
+  2. SOC Operations → Functions of a SOC, handling alerts, working with SIEM, and escalation procedures.
+  3. Day in Life → Hands-on simulation of monitoring logs, detecting suspicious activities, and reporting incidents.
+* Key Learning: SOC analysts need attention to detail, quick response to alerts, and strong knowledge of tools like SIEM, IDS/IPS.
