@@ -1,0 +1,46 @@
+# TryHackMe Walkthroughs (High-Level, Ethical Use Only)
+
+**Author:** Royalian28
+**Last Updated:** 2025-08-29
+**Disclaimer:** These notes are for authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+
+# TryHackMe Room: Pickle Rick
+
+* **Room Type:** Offensive Security / CTF
+* **Objective:** Collect the three secret ingredients hidden in the target system.
+
+
+# Tasks Completed
+
+1. **Reconnaissance**
+
+   * Pinged target to verify it was live.
+   * Nmap scan revealed **22 (SSH)** and **80 (HTTP)** open.
+
+2. **Web Enumeration**
+
+   * Explored the HTTP service and page source → found a **username**.
+   * Checked `robots.txt` → revealed a **password clue**.
+   * Ran Gobuster → discovered hidden login page `portal.php`.
+
+3. **Initial Access**
+
+   * Logged into the portal with discovered credentials.
+   * Gained access to a restricted **command panel** for system interaction.
+
+4. **Privilege Escalation**
+
+   * Verified commands worked (`ls`, `less`).
+   * Used `sudo -l` → confirmed root access was possible.
+   * Switched to root and escalated privileges.
+
+5. **Capture the Ingredients**
+
+   * Navigated directories with root privileges.
+   * Retrieved all three hidden ingredients, completing the challenge.
+
+
+# Key Learning
+
+This room reinforced practical skills in **web enumeration, directory brute-forcing, privilege escalation, and restricted shell bypass techniques**. It showed the importance of persistence and creativity when facing limited command environments.
