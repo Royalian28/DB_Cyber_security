@@ -1,0 +1,51 @@
+TryHackMe Walkthroughs (High-Level, Ethical Use Only)
+
+Author: Royalian28
+Last Updated: 2025-09-01
+Disclaimer: These notes are for authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+TryHackMe Room: MAL – Malware Introductory
+Room Type: Malware Analysis (Introductory)
+Difficulty: Easy (≈ 45 min)
+Objective: Understand the basics of malware, its components, lifecycle, and simple analysis techniques.
+
+📝 Tasks Completed
+
+Introduction to Malware
+
+Learned what malware is and the different categories (worms, trojans, ransomware, spyware, rootkits).
+
+Malware Components
+
+Explored payloads, persistence mechanisms, obfuscation, and delivery methods.
+
+Understood how attackers hide their code to evade detection.
+
+APT Lifecycle
+
+Studied how Advanced Persistent Threats (APTs) move through the kill chain: Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → C2 communication.
+
+Hands-On with Tools
+
+VirusTotal → Used to check file hashes and scan for known malware.
+
+Hybrid Analysis / Joe Sandbox → Viewed sandbox reports to see dynamic behavior.
+
+strings & hexdump → Learned to extract readable text from binaries for quick IoC hunting.
+
+Identifying Indicators of Compromise (IoCs)
+
+Learned how file hashes, IPs, domains, and registry changes serve as IoCs.
+
+Saw how these indicators help track malware campaigns.
+
+🎯 Key Learning
+
+Malware is more than just “viruses”—it’s a whole ecosystem of techniques.
+
+Static and dynamic analysis are essential first steps to investigate suspicious files.
+
+Recognizing IoCs is crucial for incident response and proactive defense.
+
+✅ Room Status: Completed 100%
+🔗 Reference: MAL: https://tryhackme.com/room/malmalintroductory
