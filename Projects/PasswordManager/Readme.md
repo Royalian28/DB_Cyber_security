@@ -142,3 +142,4 @@ Ideas for improvement:
 # Demo (Screenshots)
 
 
+<img width="1920" height="824" alt="Screenshot (145)" src="https://github.com/user-attachments/assets/59b0bcd2-fd84-46c3-905a-afd43c98252f" />
