@@ -141,6 +141,4 @@ Ideas for improvement:
 
 # Demo (Screenshots)
 
-* Vault initialization
-* Interactive shell with commands
-* Recovery QR workflow
+
