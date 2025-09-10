@@ -1,0 +1,31 @@
+TryHackMe Walkthroughs (High-Level, Ethical Use Only)
+Author: Dhanush Bharathi
+Last Updated: 2025-09-10
+Scope: Summaries for rooms you noted as completed.
+Disclaimer: These notes are for authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+•Room: Source
+•Target/OS: Linux (CTF-style)
+•Objective: Capture user.txt and root.txt.
+
+Recon:
+•Ping to confirm host up.
+•nmap -Pn <IP> → Found open ports: 22 (SSH) , 10000 (Webmin)
+•Webmin version detected: 1.890
+
+Exploit Path (high-level):
+•Research revealed CVE-2019-15231 (Webmin backdoor).
+•Launch Metasploit → exploit/linux/http/webmin_backdoor.
+•Configure RHOST/RPORT, run exploit.
+•Direct root shell obtained.
+•Post-Exploitation:
+•Retrieved user.txt → /home/dark/.
+•Retrieved root.txt → /root/.
+
+Cleanup:
+•Closed session, cleared any test artifacts.
+•Defensive Notes:
+•Patch Webmin to versions >1.890 immediately.
+•Restrict admin interfaces (port 10000) to trusted hosts.
+•Monitor logs for unauthorized resets or privilege escalations.
+
