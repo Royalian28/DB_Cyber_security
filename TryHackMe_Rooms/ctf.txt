@@ -1,6 +1,6 @@
 TryHackMe Walkthroughs (High-Level, Ethical Use Only)
 Author: Dhanush Bharathi
-Last Updated: 2025-09-10
+Last Updated: 2025-09-27
 Scope: Summaries for rooms you noted as completed.
 Disclaimer: These notes are for authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
 
@@ -20,4 +20,5 @@ Room link : https://tryhackme.com/room/easyctf
 10) then seems the target machine has another user named "sunbath", and the root privileges were prevented to see the root directory.
 10) To find the root privilege, using "sudo -l" identified that vim has the root privilege "usr/bin/vim"
 11) Using vim to open the shell "sudo vim -c ':!/bin/sh'" 
+
 12) then simply roamed into the /root directory finds the last and that's the root flag!.
