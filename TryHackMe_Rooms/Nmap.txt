@@ -1,0 +1,25 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+
+# Room: Further Nmap
+
+# Goal: 
+Move beyond basic scans to aggressive detection and NSE usage.  
+Key Skills: Timing templates, script scans, targeted port ranges, output formats.
+
+# Method (High‑Level)
+1. Baselines: Default scripts and version scan to build service inventory.  
+2. Aggressive Mode: OS detection + traceroute as appropriate in a lab; be mindful of noise.  
+3. NSE: Use safe scripts for service enumeration and vuln checks; export results in multiple formats for reporting.  
+4. Validation: Re‑scan changed services; diff outputs.
+
+# Defensive Takeaways
+- Service inventory accuracy, change management, and alerting on unexpected open ports.

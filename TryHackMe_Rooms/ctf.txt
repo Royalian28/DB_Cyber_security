@@ -1,0 +1,24 @@
+TryHackMe Walkthroughs (High-Level, Ethical Use Only)
+Author: Dhanush Bharathi
+Last Updated: 2025-09-27
+Scope: Summaries for rooms you noted as completed.
+Disclaimer: These notes are for authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+Room Name : Capture the Flag
+Room link : https://tryhackme.com/room/easyctf
+
+1) First scanned the services are running under the port 1000, using cmmnd "nmap -sV <Target_ip> -p 1-1000"
+2) Then Identified the service running on higher port using "nmap -sV <Target_ip>"
+3) It shows a web application was running on its port 80/tcp so pasted the target_ip on the web browser, and it seems suspisious as it will have some sub directory!.
+	- so checks the web app with the gobuster "gobuster -dir -u <target_ip> -w usr/share/dirbuster/medium.txt" and found that it has a sub directory named "simple"
+4) opens the "<target_ip>/simple" in the webbrowser.
+5) its shows something named "cms simple" running in it, which was the version 2.2.8.
+6) founds the vulnerability related to that cms simple version 2.2.8!,cve 2019-9053
+7) downloaded the exploit.py from the exploit dn, by running it identified the user name and password for the "ssh login"
+8) with the terminal, successfully loggedin to the target machine via "ssh mitch@<Target_ip> -p 2222" as username = "mitch" and password = "secret" and ssh running on the port 2222.
+9) find the user.txt file, it was the first flag!.
+10) then seems the target machine has another user named "sunbath", and the root privileges were prevented to see the root directory.
+10) To find the root privilege, using "sudo -l" identified that vim has the root privilege "usr/bin/vim"
+11) Using vim to open the shell "sudo vim -c ':!/bin/sh'" 
+
+12) then simply roamed into the /root directory finds the last and that's the root flag!.

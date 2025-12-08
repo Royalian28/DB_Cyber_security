@@ -1,0 +1,23 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+# Room: Blue (MS17‑010 / “EternalBlue”)
+
+# Goal: 
+Identify and exploit SMBv1 MS17‑010 on a Windows host within the THM network.  
+Key Skills: SMB enumeration, vulnerability validation, careful exploitation, Windows post‑exploitation.
+
+# Method (High‑Level)
+1. Recon: Version/service detection on SMB; check for MS17‑010 signatures (safe NSE scripts / framework checks).  
+2. Confirm: Verify the host is actually vulnerable (SMBv1 and the MS17‑010 fingerprint).  
+3. Exploit (lab context): Use a controlled module to get a shell; stabilize session.  
+4. Post‑Exploitation: Collect flags with least impact, then clean up.
+
+# Defensive Takeaways
+- Disable SMBv1, apply MS17‑010 patches, enable network segmentation and logging on 445.

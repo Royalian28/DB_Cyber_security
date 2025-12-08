@@ -1,0 +1,23 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+# Room: Ice (Windows / Icecast)
+
+# Goal: 
+Gain foothold on a Windows host running Icecast and escalate to retrieve flags.  
+Key Skills: Service enumeration, Windows exploitation, post‑exploitation hygiene.
+
+# Method (High‑Level)
+1. Recon: Full TCP scan and service/version detection to identify Icecast on TCP/8000; note Windows services (SMB/RDP/etc.).  
+2. Vuln ID: Icecast 2.0.1 is historically vulnerable to a buffer overflow (CVE linked in public writeups).  
+3. Exploit (lab context): Use a vetted framework module for Icecast overflow to obtain a reverse shell. Avoid real‑world targets.  
+4. Post‑Exploitation: Enumerate user context, collect allowed flags, and tidy up artifacts.
+
+# Defensive Takeaways
+- Retire/patch Icecast 2.0.1; implement allow‑listing and EDR; restrict exposed services.

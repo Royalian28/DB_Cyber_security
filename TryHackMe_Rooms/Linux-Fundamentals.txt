@@ -1,0 +1,26 @@
+# TryHackMe Walkthroughs (High‑Level, Ethical Use Only)
+
+Author:Royalian28
+Last Updated: 2025-08-23  
+Scope: Summaries for rooms you noted as completed: Ice, Blue (EternalBlue), Hydra, Further Nmap, RP: Nessus Redux, and Linux Fundamentals.  
+Disclaimer: These notes are for "authorized lab environments (e.g., TryHackMe) only. Do not target systems without explicit permission.
+
+---
+
+
+
+# Room: Linux Fundamentals (Part 1 and related)
+
+# Goal: 
+Build command‑line fluency for day‑to‑day security tasks.  
+Key Skills: Filesystem navigation, permissions, processes, networking basics, package management, SSH.
+
+# Method (High‑Level)
+1. Navigation & Files: `ls`, `cd`, `cat`, `less`, redirection/pipes.  
+2. Users & Permissions: `chmod/chown`, `sudo`, understanding `rwx` and umask.  
+3. Processes & Services: `ps`, `top`, `systemctl`, logs under `/var/log`.  
+4. Networking: `ip/ifconfig`, `ss/netstat`, `scp/rsync`, SSH keys.  
+5. Flags: Follow tasks to answer questions and retrieve lab flags.
+
+# Defensive Takeaways
+- Principle of least privilege, log review, secure SSH, patch hygiene.

