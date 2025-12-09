@@ -1,0 +1,47 @@
+			THM : Broken Access Control
+
+1. What is access Control?
+Access control is a security mechanism used to control which users or systems are allowed to access a particular resource or system.
+
+2.Access control Mechanisms : 
+i) Discretionary Access Control
+ii) Mandatory Access Control
+iii) Role-Based Access Control
+iv) Attribute Based Access Control
+
+
+3. Vertical and Horizontal Privilege escalation
+
+4. IDOR - Insecure Direct Object Reference
+5. Horizontal Privilege escalation occurs when an attacker can access resources or data belonging to other users with the same level of access levels
+6. Vertical Privilege Escalation occurs when an attacker can access resources or data from users with higher access levels
+7.ABAC - Attribute Based Access Control
+8.RBAC - Role Based Access Coontrol
+
+9. Deployed the machine
+
+10. Gets into the web(http - 80), by puts the ip of the target macine in browser.
+
+11. creating the test account and logged in with that account!.
+
+12. The web application was hosted on Apache server and utilizes the PHP/8.0.19 as its backend programming language
+
+13. There we found that admin email was admin@admin.com, in the online users tab!.
+
+14. In the url, just by tampering the parameter ?isadmin=true we can get the admin access to our account!. 
+
+15. before we get admin access, the application redirects to "function.php", once we got the access it will show the location as "admin.php"
+
+16. we used Vertical privilege escalation to access the admin.php
+17. We used the "isadmin" parameter to access the admin page
+18. In the admin page there should be a flag : "THM{I_C4n_3xpl01t_B4c}"
+
+
+19. To mitigate the risk of broken access control:
+
+- Implementing the Role based access control
+- Using the parameterized queries
+- Proper session management
+- utilizing the secure coding practices.
+
+20. Link : https://tryhackme.com/room/owaspbrokenaccesscontrol
