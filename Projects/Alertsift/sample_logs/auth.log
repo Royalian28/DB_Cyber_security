@@ -1,0 +1,140 @@
+Oct  9 08:00:00 web01 CRON[2000]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 08:00:01 web01 CRON[2000]: pam_unix(cron:session): session closed for user root
+Oct  9 08:17:00 web01 CRON[2001]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 08:17:01 web01 CRON[2001]: pam_unix(cron:session): session closed for user root
+Oct  9 08:34:00 web01 CRON[2002]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 08:34:01 web01 CRON[2002]: pam_unix(cron:session): session closed for user root
+Oct  9 08:51:00 web01 CRON[2003]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 08:51:01 web01 CRON[2003]: pam_unix(cron:session): session closed for user root
+Oct  9 09:08:00 web01 CRON[2004]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 09:08:01 web01 CRON[2004]: pam_unix(cron:session): session closed for user root
+Oct  9 09:25:00 web01 CRON[2005]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct  9 09:25:01 web01 CRON[2005]: pam_unix(cron:session): session closed for user root
+Oct  9 10:00:00 web01 sshd[4000]: Failed password for root from 45.33.32.156 port 40000 ssh2
+Oct  9 10:00:00 web01 sshd[4000]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:05 web01 sshd[4001]: Failed password for invalid user ubuntu from 45.33.32.156 port 40001 ssh2
+Oct  9 10:00:05 web01 sshd[4001]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=ubuntu
+Oct  9 10:00:10 web01 sshd[4002]: Failed password for root from 45.33.32.156 port 40002 ssh2
+Oct  9 10:00:10 web01 sshd[4002]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:15 web01 sshd[4003]: Failed password for invalid user admin from 45.33.32.156 port 40003 ssh2
+Oct  9 10:00:15 web01 sshd[4003]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=admin
+Oct  9 10:00:20 web01 sshd[4004]: Failed password for invalid user test from 45.33.32.156 port 40004 ssh2
+Oct  9 10:00:20 web01 sshd[4004]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=test
+Oct  9 10:00:25 web01 sshd[4005]: Failed password for invalid user ubuntu from 45.33.32.156 port 40005 ssh2
+Oct  9 10:00:25 web01 sshd[4005]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=ubuntu
+Oct  9 10:00:30 web01 sshd[4006]: Failed password for root from 45.33.32.156 port 40006 ssh2
+Oct  9 10:00:30 web01 sshd[4006]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:35 web01 sshd[4007]: Failed password for root from 45.33.32.156 port 40007 ssh2
+Oct  9 10:00:35 web01 sshd[4007]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:40 web01 sshd[4008]: Failed password for root from 45.33.32.156 port 40008 ssh2
+Oct  9 10:00:40 web01 sshd[4008]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:45 web01 sshd[4009]: Failed password for root from 45.33.32.156 port 40009 ssh2
+Oct  9 10:00:45 web01 sshd[4009]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:50 web01 sshd[4010]: Failed password for root from 45.33.32.156 port 40010 ssh2
+Oct  9 10:00:50 web01 sshd[4010]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:00:55 web01 sshd[4011]: Failed password for root from 45.33.32.156 port 40011 ssh2
+Oct  9 10:00:55 web01 sshd[4011]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:00 web01 sshd[4012]: Failed password for root from 45.33.32.156 port 40012 ssh2
+Oct  9 10:01:00 web01 sshd[4012]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:05 web01 sshd[4013]: Failed password for root from 45.33.32.156 port 40013 ssh2
+Oct  9 10:01:05 web01 sshd[4013]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:10 web01 sshd[4014]: Failed password for invalid user oracle from 45.33.32.156 port 40014 ssh2
+Oct  9 10:01:10 web01 sshd[4014]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=oracle
+Oct  9 10:01:15 web01 sshd[4015]: Failed password for invalid user oracle from 45.33.32.156 port 40015 ssh2
+Oct  9 10:01:15 web01 sshd[4015]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=oracle
+Oct  9 10:01:20 web01 sshd[4016]: Failed password for root from 45.33.32.156 port 40016 ssh2
+Oct  9 10:01:20 web01 sshd[4016]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:25 web01 sshd[4017]: Failed password for root from 45.33.32.156 port 40017 ssh2
+Oct  9 10:01:25 web01 sshd[4017]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:30 web01 sshd[4018]: Failed password for root from 45.33.32.156 port 40018 ssh2
+Oct  9 10:01:30 web01 sshd[4018]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:35 web01 sshd[4019]: Failed password for invalid user oracle from 45.33.32.156 port 40019 ssh2
+Oct  9 10:01:35 web01 sshd[4019]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=oracle
+Oct  9 10:01:40 web01 sshd[4020]: Failed password for root from 45.33.32.156 port 40020 ssh2
+Oct  9 10:01:40 web01 sshd[4020]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:45 web01 sshd[4021]: Failed password for root from 45.33.32.156 port 40021 ssh2
+Oct  9 10:01:45 web01 sshd[4021]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:50 web01 sshd[4022]: Failed password for root from 45.33.32.156 port 40022 ssh2
+Oct  9 10:01:50 web01 sshd[4022]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:01:55 web01 sshd[4023]: Failed password for invalid user test from 45.33.32.156 port 40023 ssh2
+Oct  9 10:01:55 web01 sshd[4023]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=test
+Oct  9 10:02:00 web01 sshd[4024]: Failed password for invalid user test from 45.33.32.156 port 40024 ssh2
+Oct  9 10:02:00 web01 sshd[4024]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=test
+Oct  9 10:02:05 web01 sshd[4025]: Failed password for invalid user test from 45.33.32.156 port 40025 ssh2
+Oct  9 10:02:05 web01 sshd[4025]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=test
+Oct  9 10:02:10 web01 sshd[4026]: Failed password for invalid user admin from 45.33.32.156 port 40026 ssh2
+Oct  9 10:02:10 web01 sshd[4026]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=admin
+Oct  9 10:02:15 web01 sshd[4027]: Failed password for invalid user ubuntu from 45.33.32.156 port 40027 ssh2
+Oct  9 10:02:15 web01 sshd[4027]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=ubuntu
+Oct  9 10:02:20 web01 sshd[4028]: Failed password for root from 45.33.32.156 port 40028 ssh2
+Oct  9 10:02:20 web01 sshd[4028]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:25 web01 sshd[4029]: Failed password for root from 45.33.32.156 port 40029 ssh2
+Oct  9 10:02:25 web01 sshd[4029]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:30 web01 sshd[4030]: Failed password for root from 45.33.32.156 port 40030 ssh2
+Oct  9 10:02:30 web01 sshd[4030]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:35 web01 sshd[4031]: Failed password for root from 45.33.32.156 port 40031 ssh2
+Oct  9 10:02:35 web01 sshd[4031]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:40 web01 sshd[4032]: Failed password for invalid user ubuntu from 45.33.32.156 port 40032 ssh2
+Oct  9 10:02:40 web01 sshd[4032]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=ubuntu
+Oct  9 10:02:45 web01 sshd[4033]: Failed password for root from 45.33.32.156 port 40033 ssh2
+Oct  9 10:02:45 web01 sshd[4033]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:50 web01 sshd[4034]: Failed password for root from 45.33.32.156 port 40034 ssh2
+Oct  9 10:02:50 web01 sshd[4034]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:02:55 web01 sshd[4035]: Failed password for root from 45.33.32.156 port 40035 ssh2
+Oct  9 10:02:55 web01 sshd[4035]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:00 web01 sshd[4036]: Failed password for invalid user admin from 45.33.32.156 port 40036 ssh2
+Oct  9 10:03:00 web01 sshd[4036]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=admin
+Oct  9 10:03:05 web01 sshd[4037]: Failed password for invalid user oracle from 45.33.32.156 port 40037 ssh2
+Oct  9 10:03:05 web01 sshd[4037]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=oracle
+Oct  9 10:03:10 web01 sshd[4038]: Failed password for root from 45.33.32.156 port 40038 ssh2
+Oct  9 10:03:10 web01 sshd[4038]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:15 web01 sshd[4039]: Failed password for invalid user admin from 45.33.32.156 port 40039 ssh2
+Oct  9 10:03:15 web01 sshd[4039]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=admin
+Oct  9 10:03:20 web01 sshd[4040]: Failed password for root from 45.33.32.156 port 40040 ssh2
+Oct  9 10:03:20 web01 sshd[4040]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:25 web01 sshd[4041]: Failed password for invalid user test from 45.33.32.156 port 40041 ssh2
+Oct  9 10:03:25 web01 sshd[4041]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=test
+Oct  9 10:03:30 web01 sshd[4042]: Failed password for root from 45.33.32.156 port 40042 ssh2
+Oct  9 10:03:30 web01 sshd[4042]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:35 web01 sshd[4043]: Failed password for root from 45.33.32.156 port 40043 ssh2
+Oct  9 10:03:35 web01 sshd[4043]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:40 web01 sshd[4044]: Failed password for root from 45.33.32.156 port 40044 ssh2
+Oct  9 10:03:40 web01 sshd[4044]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:45 web01 sshd[4045]: Failed password for root from 45.33.32.156 port 40045 ssh2
+Oct  9 10:03:45 web01 sshd[4045]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:50 web01 sshd[4046]: Failed password for root from 45.33.32.156 port 40046 ssh2
+Oct  9 10:03:50 web01 sshd[4046]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:03:55 web01 sshd[4047]: Failed password for root from 45.33.32.156 port 40047 ssh2
+Oct  9 10:03:55 web01 sshd[4047]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:00 web01 sshd[4048]: Failed password for invalid user oracle from 45.33.32.156 port 40048 ssh2
+Oct  9 10:04:00 web01 sshd[4048]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=oracle
+Oct  9 10:04:05 web01 sshd[4049]: Failed password for root from 45.33.32.156 port 40049 ssh2
+Oct  9 10:04:05 web01 sshd[4049]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:10 web01 sshd[4050]: Failed password for root from 45.33.32.156 port 40050 ssh2
+Oct  9 10:04:10 web01 sshd[4050]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:15 web01 sshd[4051]: Failed password for root from 45.33.32.156 port 40051 ssh2
+Oct  9 10:04:15 web01 sshd[4051]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:20 web01 sshd[4052]: Failed password for root from 45.33.32.156 port 40052 ssh2
+Oct  9 10:04:20 web01 sshd[4052]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:25 web01 sshd[4053]: Failed password for invalid user admin from 45.33.32.156 port 40053 ssh2
+Oct  9 10:04:25 web01 sshd[4053]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=admin
+Oct  9 10:04:30 web01 sshd[4054]: Failed password for root from 45.33.32.156 port 40054 ssh2
+Oct  9 10:04:30 web01 sshd[4054]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:35 web01 sshd[4055]: Failed password for root from 45.33.32.156 port 40055 ssh2
+Oct  9 10:04:35 web01 sshd[4055]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:40 web01 sshd[4056]: Failed password for invalid user ubuntu from 45.33.32.156 port 40056 ssh2
+Oct  9 10:04:40 web01 sshd[4056]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=ubuntu
+Oct  9 10:04:45 web01 sshd[4057]: Failed password for root from 45.33.32.156 port 40057 ssh2
+Oct  9 10:04:45 web01 sshd[4057]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:50 web01 sshd[4058]: Failed password for root from 45.33.32.156 port 40058 ssh2
+Oct  9 10:04:50 web01 sshd[4058]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:04:55 web01 sshd[4059]: Failed password for root from 45.33.32.156 port 40059 ssh2
+Oct  9 10:04:55 web01 sshd[4059]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.33.32.156  user=root
+Oct  9 10:05:03 web01 sshd[5000]: Accepted password for root from 45.33.32.156 port 51000 ssh2
+2026-10-09T11:00:00.000000+00:00 kali unix_chkpwd[6000]: password check failed for user (kali)
+2026-10-09T11:00:00.000000+00:00 kali lightdm: pam_unix(lightdm:auth): authentication failure; logname= uid=0 euid=0 tty=:0 ruser= rhost=  user=kali
+2026-10-09T11:00:20.000000+00:00 kali unix_chkpwd[6001]: password check failed for user (kali)
+2026-10-09T11:00:20.000000+00:00 kali lightdm: pam_unix(lightdm:auth): authentication failure; logname= uid=0 euid=0 tty=:0 ruser= rhost=  user=kali
+2026-10-09T11:00:40.000000+00:00 kali unix_chkpwd[6002]: password check failed for user (kali)
+2026-10-09T11:00:40.000000+00:00 kali lightdm: pam_unix(lightdm:auth): authentication failure; logname= uid=0 euid=0 tty=:0 ruser= rhost=  user=kali
+2026-10-09T11:01:15.000000+00:00 kali lightdm: pam_unix(lightdm:session): session opened for user kali(uid=1000) by kali(uid=0)

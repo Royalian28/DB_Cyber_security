@@ -1,0 +1,10 @@
+From: Priya Nair <priya.nair@company.example>
+To: user0@company.example
+Subject: Weekly sync notes
+Date: Fri, 09 Oct 2026 11:00:00 +0000
+Authentication-Results: mx.company.example; spf=pass; dkim=pass; dmarc=pass
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Hi all, notes from today's sync are in the shared folder. Thanks, Priya

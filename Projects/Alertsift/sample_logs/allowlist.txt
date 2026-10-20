@@ -1,0 +1,2 @@
+# authorized scanners / admin hosts, one per line
+10.0.2.15

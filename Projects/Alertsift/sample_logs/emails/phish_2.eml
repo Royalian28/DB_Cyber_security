@@ -1,0 +1,27 @@
+From: "PayPal Support" <billing@paypa1-secure.example>
+To: user1@company.example
+Subject: URGENT: Your account has been suspended - verify immediately
+Date: Fri, 09 Oct 2026 11:01:00 +0000
+Authentication-Results: mx.company.example; spf=fail
+ smtp.mailfrom=paypa1-secure.example; dkim=none; dmarc=fail
+Reply-To: recover-account@mail-helpdesk.example
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============1395481321003588336=="
+
+--===============1395481321003588336==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Your account will be closed within 24 hours. Action required: confirm your id=
+entity at http://45.9.148.20/paypal/login
+
+--===============1395481321003588336==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<p>Your account is suspended. <a href=3D"http://45.9.148.20/paypal/login">www=
+.paypal.com/verify</a></p>
+
+--===============1395481321003588336==--
